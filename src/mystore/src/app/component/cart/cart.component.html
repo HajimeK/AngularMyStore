@@ -1,0 +1,21 @@
+<div class="cart-container">
+    <div class="cart-detail" fxLayout="row wrap" fxLayoutGap="1.5% grid">
+        <app-cart-item class="cart-item" *ngFor="let item of cart.items" [cartItem]="item"></app-cart-item>
+    </div>
+<!--
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>name</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="{{item.user.name}}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>address</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="{{item.user.address}}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Credit Card Number</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="{{item.user.ccnum}}">
+        </mat-form-field>
+    </form>
+-->
+</div>

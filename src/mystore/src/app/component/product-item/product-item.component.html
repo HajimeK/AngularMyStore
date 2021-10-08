@@ -1,0 +1,15 @@
+<mat-card class="product-container">
+    <mat-card-header>
+        <mat-card-title>{{product.name}}
+            <div class="product-image">
+                <img mat-card-image src="{{product.url}}" alt="{{product.name}}">
+            </div>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{product.description}}
+        </p>
+        $ {{product.price}}
+    </mat-card-content>
+</mat-card>
