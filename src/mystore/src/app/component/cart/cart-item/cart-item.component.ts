@@ -15,7 +15,7 @@ export class CartItemComponent implements OnInit {
       url: '',
       price: -1
     },
-    num: -1
+    quantity: -1
   };
 
   constructor() { }

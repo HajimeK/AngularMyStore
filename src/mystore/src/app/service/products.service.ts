@@ -7,6 +7,8 @@ import { Product } from '../model/product';
   providedIn: 'root'
 })
 export class ProductsService {
+  activeProduct: Product = {id: 0, name: '', description: '', url: '', price: -1};
+
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {

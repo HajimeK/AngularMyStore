@@ -8,11 +8,11 @@ img {
     margin-bottom: 8px;
   }
 
-  .detail-container {
+  .list-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 64px;
+    background-color: rgb(193, 194, 196);
   }
 
   .detail-item {

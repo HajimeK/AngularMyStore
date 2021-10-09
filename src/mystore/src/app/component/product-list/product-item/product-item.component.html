@@ -1,11 +1,12 @@
-<mat-card class="product-container" fxLayout="row wrap" fxLayoutGap="3% grid" fxLayoutAlign="space-around">
-    <mat-card-header  fxLayout="column wrap" fxLayoutGap="3% grid">
-        <mat-card-title>{{product.name}}</mat-card-title>
-        <div class="product-image">
-            <a [routerLink]="['/product', product.id]">
-                <img mat-card-image src="{{product.url}}" alt="{{product.name}}">
-            </a>
-        </div>
+<mat-card class="product-container">
+    <mat-card-header>
+        <mat-card-title>{{product.name}}
+            <div class="product-image">
+                <a [routerLink]="['/product', product.id]">
+                    <img mat-card-image src="{{product.url}}" alt="{{product.name}}">
+                </a>
+            </div>
+        </mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <p>{{product.description}}</p>
