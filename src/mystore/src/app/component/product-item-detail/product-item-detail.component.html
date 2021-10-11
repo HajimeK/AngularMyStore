@@ -10,12 +10,6 @@
     <mat-card-content>
         <p>{{product.description}}</p>
         <p>$ {{product.price}}</p>
-        <form class="select-input">
-            <mat-form-field>
-                <mat-label>Quantity</mat-label>
-                <input [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" matInput placeholder="Quantity" type="number" value="0" Step="1" min="0">
-            </mat-form-field>
-            <button mat-raised-button color="primary" (click)="onUpdateCount()">Add to Cart</button>
-        </form>
+        <app-quntitywidget [product]="product"></app-quntitywidget>
     </mat-card-content>
 </mat-card>

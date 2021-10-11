@@ -1,1 +1,17 @@
-<p>customer works!</p>
+<div class="customer-panel" fxLayout="row wrap" fxLayoutGap="3% grid" fxLayoutAlign="space-around">
+    <form class="cart-item-detail">
+        <p><mat-form-field class="string" appearance="fill">
+            <mat-label>name</mat-label>
+            <input matInput placeholder="Your name" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}">
+        </mat-form-field></p>
+        <p><mat-form-field class="string" appearance="fill">
+            <mat-label>address</mat-label>
+            <input matInput placeholder="Delivery Address" [(ngModel)]="user.address" [ngModelOptions]="{standalone: true}">
+        </mat-form-field></p>
+        <p><mat-form-field class="string" appearance="fill">
+            <mat-label>Credit Card Number</mat-label>
+            <input matInput placeholder="Your Credit Cart Number" [(ngModel)]="user.ccnum" [ngModelOptions]="{standalone: true}">
+        </mat-form-field></p>
+        <button mat-raised-button color="primary" (click)="onOrder()" disabled={{isOrderEnabled}}>Order</button>
+    </form>
+</div>

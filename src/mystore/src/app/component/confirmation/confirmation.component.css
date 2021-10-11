@@ -18,3 +18,40 @@
   .confirmation-item {
     margin-bottom: 30px;
   }
+
+  .out {
+    display: table;
+    width: 100%;
+    height: 90%;
+    background-color: slategrey;
+  }
+
+.center {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.string {
+    font-size: 80px;
+    color: #d4ceda;
+    font-family: 'Yellowtail', cursive;
+    line-height:0.9em;
+}
+
+.buttonstring {
+  font-size: 40px;
+  color: #055c0c;
+  font-family: 'Yellowtail', cursive;
+  line-height:0.9em;
+}
+.hero {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+}

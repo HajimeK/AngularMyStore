@@ -15,12 +15,24 @@ export class CartService {
 
   constructor() { }
 
+  getUser(): User {
+    return this.user;
+  }
+
   setUser(user: User): void {
     this.user = user;
   }
 
   alretyInTheCart(product: Product): boolean {
     return ((this.items).find((item) => item.product.id === product.id) !== null);
+  }
+
+  getCartItem(product: Product) : (CartItem | undefined) {
+    return (this.items).find((item) => item.product.id === product.id);
+  }
+
+  getCartItems(): CartItem[] {
+    return this.items;
   }
 
   updateItem(product: Product, newQuantity: number) : void {
@@ -39,6 +51,10 @@ export class CartService {
     this.items.forEach((item) => {
       this.total += item.quantity * item.product.price;
     })
+  }
+
+  getTotal() : number {
+    return this.total;
   }
 
   issue() {

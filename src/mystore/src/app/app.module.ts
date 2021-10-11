@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatBadgeModule } from '@angular/material/badge';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -17,6 +18,8 @@ import { ProductListComponent } from './component/product-list/product-list.comp
 import { HeaderComponent } from './component/header/header.component';
 import { CartItemComponent } from './component/cart/cart-item/cart-item.component';
 import { CustomerComponent } from './component/cart/customer/customer.component';
+import { QuntitywidgetComponent } from './component/quntitywidget/quntitywidget.component';
+import { CartlinkComponent } from './component/header/cartlink/cartlink.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { CustomerComponent } from './component/cart/customer/customer.component'
     ProductListComponent,
     HeaderComponent,
     CartItemComponent,
-    CustomerComponent
+    CustomerComponent,
+    QuntitywidgetComponent,
+    CartlinkComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,7 @@ import { CustomerComponent } from './component/cart/customer/customer.component'
     FlexLayoutModule,
     MatCardModule,
     MatInputModule,
+    MatBadgeModule,
     FormsModule
   ],
   providers: [],

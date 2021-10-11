@@ -19,6 +19,7 @@ img {
     flex-direction: column;
     align-items: left;
     margin-left: 80px;
+
   }
 
   .number-input {
@@ -31,6 +32,7 @@ img {
     flex-direction: row;
     justify-content: center;
     margin-top: 64px;
+    background-color: rgb(193, 194, 196);
   }
 
   .cart-panel {
@@ -43,3 +45,4 @@ img {
     justify-content: center;
     margin-top: 64px;
   }
+

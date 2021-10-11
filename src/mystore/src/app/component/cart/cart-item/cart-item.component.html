@@ -1,12 +1,10 @@
-<mat-card class="cart-item">
-    <mat-card-header>
-        <div class="product-image">
-            <img mat-card-image src="{{cartItem.product.url}}" alt="{{cartItem.product.name}}">
-        </div>
-    </mat-card-header>
+<mat-card class="cart-item" fxLayout="row" fxLayoutAlign="space-around">
     <mat-card-content>
-        {{cartItem.product.name}}
-        $ {{cartItem.product.price}}
-        {{cartItem.quantity}}
+        <img mat-card-image src="{{cartItem.product.url}}" alt="{{cartItem.product.name}}">
+    </mat-card-content>
+    <mat-card-content clas="cart-item-details">
+        <p>{{cartItem.product.name}}</p>
+        <p>Unit Price: $ {{cartItem.product.price}}</p>
+        <app-quntitywidget [product]="cartItem.product"></app-quntitywidget>
     </mat-card-content>
 </mat-card>
