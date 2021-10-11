@@ -12,9 +12,17 @@ export class CartlinkComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.updateCartTotal.subscribe((tot:number) => {
+      console.log('event subscried');
+      console.log(tot);
+    })
+  }
+
+  itemCount(): number {
     this.numInCart = 0;
     this.cartService.getCartItems().forEach((item) => {
       this.numInCart += item.quantity
     })
+    return this.numInCart;
   }
 }

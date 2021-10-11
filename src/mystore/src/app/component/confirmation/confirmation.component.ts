@@ -10,17 +10,17 @@ import { Router } from '@angular/router';
 })
 export class ConfirmationComponent implements OnInit {
   user: User = {name:'', address: '', ccnum: ''};
-  total: number = 0;
+  total: number = 0.0;
 
   constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.user = this.cartService.getUser();
     this.total = this.cartService.getTotal();
+    this.cartService.issue();
   }
 
   backToProductList(): void {
-    this.cartService.issue();
     this.router.navigateByUrl('/');
   }
 }

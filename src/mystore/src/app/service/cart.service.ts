@@ -1,5 +1,5 @@
 import { isNgTemplate } from '@angular/compiler';
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter} from '@angular/core';
 import { Cart, CartItem } from '../model/cart';
 import { Product } from '../model/product';
 import { User } from '../model/user';
@@ -10,8 +10,9 @@ import { User } from '../model/user';
 export class CartService {
   user: User = {name:'', address: '', ccnum: ''};
   items : CartItem[] = [];
-  total: number = -1;
+  total: number = 0.0;
   static updateItem: any;
+  public updateCartTotal: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
@@ -38,10 +39,16 @@ export class CartService {
   updateItem(product: Product, newQuantity: number) : void {
     // Find an product item in the cart, and get an item index
     const item = (this.items).find((item) => item.product.id === product.id);
+    const idx = (this.items).findIndex((item) => item.product.id === product.id);
 
     // Update the number of the order item
-    if (item) {
-      item.quantity = newQuantity;
+    if (idx >= 0) {
+      if (newQuantity === 0) {
+        // if the new quentity is 0, then remove from the caart
+        (this.items).splice(idx, 1);
+      } else {
+        (this.items[idx]).quantity = newQuantity;
+      }
     } else {
       this.items.push({product: product, quantity: newQuantity})
     }
@@ -51,6 +58,7 @@ export class CartService {
     this.items.forEach((item) => {
       this.total += item.quantity * item.product.price;
     })
+    this.updateCartTotal.emit(this.total);
   }
 
   getTotal() : number {
@@ -60,5 +68,6 @@ export class CartService {
   issue() {
     // In this demo, just clear items
     this.items = [];
+    this.updateCartTotal.emit(0);
   }
 }

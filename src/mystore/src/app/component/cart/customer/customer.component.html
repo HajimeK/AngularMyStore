@@ -12,6 +12,6 @@
             <mat-label>Credit Card Number</mat-label>
             <input matInput placeholder="Your Credit Cart Number" [(ngModel)]="user.ccnum" [ngModelOptions]="{standalone: true}">
         </mat-form-field></p>
-        <button mat-raised-button color="primary" (click)="onOrder()" disabled={{isOrderEnabled}}>Order</button>
+        <button mat-raised-button color="primary" (click)="onOrder()" [disabled]="disableOrderButton()">Order</button>
     </form>
 </div>

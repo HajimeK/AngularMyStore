@@ -3,5 +3,5 @@
         <mat-label>Quantity</mat-label>
         <input [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" matInput placeholder="Quantity" type="number" value="0" Step="1" min="0">
     </mat-form-field></p>
-    <button mat-raised-button color="primary" (click)="onUpdateCount()">Add to Cart</button>
+    <button mat-raised-button color="primary" (click)="onUpdateCount()">{{buttonLabel}}</button>
 </form>

@@ -31,22 +31,7 @@ export class ProductItemDetailComponent implements OnInit {
       const product = products.find((product) => product.id === this.id);
       if (product !== undefined) {
         this.product = product;
-        // get cart information
-        this.cartItem = this.cartService.getCartItem(this.product);
-
-        if( this.cartItem !== undefined) {
-          this.quantity = this.cartItem.quantity;
-        }
       }
     });
   }
-
-  async onUpdateCount(): Promise<void> {
-    try {
-      this.cartService.updateItem(this.product, this.quantity);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
 }

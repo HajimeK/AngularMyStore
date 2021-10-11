@@ -32,12 +32,20 @@ img {
     flex-direction: row;
     justify-content: center;
     margin-top: 64px;
+    height: 90%;
     background-color: rgb(193, 194, 196);
   }
 
   .cart-panel {
     margin-left: 50px;
     margin-right: 50px;
+    width: 50%;
+  }
+
+  .customer-panel {
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 30%;
   }
 
   .empty-cart-message {
@@ -46,3 +54,9 @@ img {
     margin-top: 64px;
   }
 
+  .string {
+    font-size: 80px;
+    color: seagreen;
+    font-family: 'Yellowtail', cursive;
+    line-height:0.9em;
+}

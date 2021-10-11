@@ -9,22 +9,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
+
   user: User = {name:'', address: '', ccnum: ''};
-  isOrderEnabled: boolean = false;
 
   constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.user = this.cartService.getUser();
-    this.isOrderEnabled = !(this.cartService.getTotal() > 0.0);
-    console.log(this.isOrderEnabled);
+  }
+
+  evaluateCustomer(): boolean {
+    return (this.user.name ==='') || (this.user.address === '') || (this.user.ccnum ==='');
+  }
+
+  disableOrderButton(): boolean {
+    return !(this.cartService.getTotal() > 0.0) || this.evaluateCustomer();
   }
 
   async onOrder(): Promise<void> {
     try {
       this.cartService.setUser(this.user);
       this.router.navigateByUrl('/confirmation');
-
     } catch (error) {
       console.log(error);
     }
