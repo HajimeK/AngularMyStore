@@ -1,17 +1,32 @@
 <div class="customer-panel" fxLayout="row wrap" fxLayoutGap="3% grid" fxLayoutAlign="space-around">
-    <form class="cart-item-detail">
+    <form #formCheck="ngForm" (ngSubmit)="onOrder()">
         <p><mat-form-field class="string" appearance="fill">
             <mat-label>name</mat-label>
-            <input matInput placeholder="Your name" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}">
+            <input matInput id="name" placeholder="Your name" [(ngModel)]="user.name" (ngModelChange)="updateName($event)" required minlength="1" maxlength="30" #name="ngModel">
+            <div *ngIf="name.errors && (name.dirty || name.touched)">
+                <div [hidden]="!name.errors.required">No values set</div>
+                <div [hidden]="!name.errors.minlength">Too short</div>
+                <div [hidden]="!name.errors.maxlength">Too long</div>
+            </div>
         </mat-form-field></p>
         <p><mat-form-field class="string" appearance="fill">
             <mat-label>address</mat-label>
-            <input matInput placeholder="Delivery Address" [(ngModel)]="user.address" [ngModelOptions]="{standalone: true}">
+            <input matInput id="address" placeholder="Delivery Address" [(ngModel)]="user.address" (ngModelChange)="updateAddress($event)" required minlength="5" maxlength="30" #address="ngModel">
+            <div *ngIf="address.errors && (address.dirty || address.touched)">
+                <div [hidden]="!address.errors.required">No values set</div>
+                <div [hidden]="!address.errors.minlength">Too short</div>
+                <div [hidden]="!address.errors.maxlength">Too long</div>
+            </div>
         </mat-form-field></p>
         <p><mat-form-field class="string" appearance="fill">
             <mat-label>Credit Card Number</mat-label>
-            <input matInput placeholder="Your Credit Cart Number" [(ngModel)]="user.ccnum" [ngModelOptions]="{standalone: true}">
+            <input matInput name="ccnum" placeholder="Your Credit Cart Number" [(ngModel)]="user.ccnum" (ngModelChange)="updateCCNum($event)" required minlength="12" maxlength="12" #ccnum="ngModel">
+            <div *ngIf="ccnum.errors && (ccnum.dirty || ccnum.touched) && validate_creditcardnumber(user.ccnum)">
+                <div [hidden]="!ccnum.errors.required">No values set</div>
+                <div [hidden]="!ccnum.errors.minlength">Too short</div>
+                <div [hidden]="!ccnum.errors.maxlength">Too long</div>
+            </div>
         </mat-form-field></p>
-        <button mat-raised-button color="primary" (click)="onOrder()" [disabled]="disableOrderButton()">Order</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="formCheck.invalid || disableOrderButton()">Order</button>
     </form>
 </div>

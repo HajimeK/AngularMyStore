@@ -1,0 +1,9 @@
+<div class="cart-panel" fxLayout="column" fxLayoutGap="1.5% grid">
+    <div *ngIf="numItems() > 0; else elseContent">
+        <app-cart-item class="cart-item-details" *ngFor="let item of cart.items" [cartItem]="item"></app-cart-item>
+        <p class="string" align="center">Total $ {{total()}}</p>
+    </div>
+    <ng-template #elseContent>
+        <h2 class="string" align="center">Cart Empty</h2>
+    </ng-template>
+</div>

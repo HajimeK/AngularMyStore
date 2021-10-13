@@ -18,12 +18,25 @@ export class CustomerComponent implements OnInit {
     this.user = this.cartService.getUser();
   }
 
-  evaluateCustomer(): boolean {
-    return (this.user.name ==='') || (this.user.address === '') || (this.user.ccnum ==='');
+  updateName(event: Event): void {
+    this.user.name = ((event as unknown) as string);
+  }
+
+  updateAddress(event: Event): void {
+    this.user.address = ((event as unknown) as string);
+  }
+
+  updateCCNum(event: Event): void {
+    this.user.ccnum = ((event as unknown) as string);
+  }
+
+  validate_creditcardnumber(ccnum: string): boolean {
+    const regex = new RegExp("^[0-9]{16}$");
+    return regex.test(ccnum);
   }
 
   disableOrderButton(): boolean {
-    return !(this.cartService.getTotal() > 0.0) || this.evaluateCustomer();
+    return !(this.cartService.getTotal() > 0.0);
   }
 
   async onOrder(): Promise<void> {

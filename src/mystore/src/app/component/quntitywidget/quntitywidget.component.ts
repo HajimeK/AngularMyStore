@@ -26,7 +26,14 @@ export class QuntitywidgetComponent implements OnInit {
     } else {
       this.buttonLabel = "Add To Cart";
     }
+  }
 
+
+  quantityChanged(event: Event): void {
+    if(((event as unknown) as number) === 0) {
+      console.log(`cart item quantity changed to ${event}`);
+      alert(`Press ${this.buttonLabel} to confirm clearing the item in the cart`);
+    }
   }
 
   async onUpdateCount(): Promise<void> {

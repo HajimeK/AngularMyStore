@@ -17,10 +17,11 @@ import { ProductItemComponent } from './component/product-list/product-item/prod
 import { ProductItemDetailComponent } from './component/product-item-detail/product-item-detail.component';
 import { ProductListComponent } from './component/product-list/product-list.component';
 import { HeaderComponent } from './component/header/header.component';
-import { CartItemComponent } from './component/cart/cart-item/cart-item.component';
+import { CartItemComponent } from './component/cart/cart-panel/cart-item/cart-item.component';
 import { CustomerComponent } from './component/cart/customer/customer.component';
 import { QuntitywidgetComponent } from './component/quntitywidget/quntitywidget.component';
 import { CartlinkComponent } from './component/header/cartlink/cartlink.component';
+import { CartPanelComponent } from './component/cart/cart-panel/cart-panel.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CartlinkComponent } from './component/header/cartlink/cartlink.componen
     CartItemComponent,
     CustomerComponent,
     QuntitywidgetComponent,
-    CartlinkComponent
+    CartlinkComponent,
+    CartPanelComponent
   ],
   imports: [
     BrowserModule,
