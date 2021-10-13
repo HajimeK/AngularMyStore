@@ -1,4 +1,7 @@
-<div class="cart-container" fxLayout="row wrap" fxLayoutGap="3% grid" fxLayoutAlign="space-around">
-    <app-cart-panel></app-cart-panel>
-    <app-customer class="customer-panel"></app-customer>
+<div class="cart-container" fxLayout="column" fxLayoutGap="3% grid" fxLayoutAlign="space-around">
+    <div fxLayout="row wrap" fxLayoutGap="3% grid" fxLayoutAlign="space-around">
+        <app-cart-panel></app-cart-panel>
+        <app-customer class="customer-panel"></app-customer>
+    </div>
+    <button mat-raised-button color="primary" (click)="onOrder()" [disabled]="disableOrderButton()">Order</button>
 </div>

@@ -3,7 +3,9 @@
 This is the demo application of Angular SPA (Single Page Application).
 To make it simple and focus on the Angular itself, any middleware and backend development is not provide in this repository. If you're intreste in Full-Stack application like MEAN (MongoDB-Express-Angula-Node.js), I am creating another repository for that  purpose.
 
-You can find the demo vieo from the **[link](https://youtu.be/mwxUBUDY3eU)**.
+You can find the demo vieo for the usage flow from the **[link](https://youtu.be/mwxUBUDY3eU)**.
+
+Some form validation on the user inputs are demostrated **[here](https://youtu.be/3xidGpQV_N8)**.
 
 ## Application Architecture
 
