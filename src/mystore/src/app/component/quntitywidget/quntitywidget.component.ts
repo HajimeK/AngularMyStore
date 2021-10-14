@@ -2,11 +2,13 @@ import { Component, Input, OnInit, OnChanges} from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
 import { Product } from 'src/app/model/product';
 import { CartItem } from 'src/app/model/cart';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-quntitywidget',
   templateUrl: './quntitywidget.component.html',
-  styleUrls: ['./quntitywidget.component.css']
+  styleUrls: ['./quntitywidget.component.css'],
+  providers: [MessageService]
 })
 export class QuntitywidgetComponent implements OnInit {
   @Input() product: Product = {id: 0, name: '', description: '', url: '', price: -1};
@@ -14,7 +16,8 @@ export class QuntitywidgetComponent implements OnInit {
   quantity: number = 0;
   buttonLabel: string = "Add To Cart";
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService,
+              private messageService: MessageService) { }
 
   ngOnInit(): void { }
 
@@ -28,11 +31,16 @@ export class QuntitywidgetComponent implements OnInit {
     }
   }
 
-
   quantityChanged(event: Event): void {
     if(((event as unknown) as number) === 0) {
       console.log(`cart item quantity changed to ${event}`);
-      alert(`Press ${this.buttonLabel} to confirm clearing the item in the cart`);
+      this.messageService.add({severity:'warn',
+                              summary:'Cart Items',
+                              detail:`Press ${this.buttonLabel} to confirm clearing the item in the cart`});
+    } else {
+      this.messageService.add({severity:'info',
+                              summary:'Cart Items',
+                              detail: `${this.product.name} quantity changed to ${event}. Press button to confirm the change.`});
     }
   }
 

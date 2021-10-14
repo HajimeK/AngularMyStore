@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Cart } from 'src/app/model/cart';
+import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/model/user';
 import { CartService } from 'src/app/service/cart.service';
 import { Router } from '@angular/router';
 
@@ -9,13 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cart : Cart = { user: {name:'', address: '', ccnum: ''}, items: []};
 
   constructor(private cartService: CartService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.cart.items = this.cartService.getCartItems();
-  }
+  ngOnInit(): void { }
 
   numItems(): number {
     return this.cartService.getCartItems().length;
@@ -25,10 +22,15 @@ export class CartComponent implements OnInit {
     return this.numItems() > 0;
   }
 
+  updateUser(updatedUser: User): void {
+    this.cartService.setUser(updatedUser);
+  }
+
   validateCartUser(): boolean {
-    return (this.cartService.user.name.length > 0)
-      && (this.cartService.user.address.length > 4)
-      && (this.cartService.user.ccnum.length === 16);
+    const user: User = this.cartService.getUser();
+    return (user.name.length > 0)
+      && (user.address.length > 4)
+      && (user.ccnum.length === 16);
   }
 
   disableOrderButton(): boolean {
@@ -42,5 +44,4 @@ export class CartComponent implements OnInit {
       console.log(error);
     }
   }
-
 }

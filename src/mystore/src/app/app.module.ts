@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
 
 import { AppComponent } from './app.component';
 import { CartComponent } from './component/cart/cart.component';
@@ -48,7 +49,8 @@ import { CartPanelComponent } from './component/cart/cart-panel/cart-panel.compo
     MatInputModule,
     MatBadgeModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
